@@ -1,0 +1,48 @@
+class SeqPalindroma {
+    constructor(datastore) {
+        this.datastore = datastore
+    }
+    enqueue(element) {
+        this.datastore.push(element)
+    }
+    fDequeue() {
+        return this.datastore.shift()
+    }
+    bDequeue() {
+        return this.datastore.pop()
+    }
+    back() {
+        return this.datastore[this.datastore.length - 1]
+    }
+    front() {
+        return this.datastore[0]
+    }
+    toString() {
+        let retstr = ''
+        for (let i = 0; i < this.datastore.length - 1; i++) {
+            retstr += this.datastore[i] + '\n'
+        }
+        return retstr
+    }
+    empty() {
+        if (this.datastore.length === 0) return true
+        else return false
+    }
+    isPalindr() {
+        let sequenzaLR = Array.from(this.datastore), sequenzaRL = [], i = this.datastore.length - 1
+        console.log(this.datastore)
+        while (this.datastore.length > 0) {
+            sequenzaRL = sequenzaRL.concat(this.bDequeue())
+        }
+        sequenzaRL = sequenzaRL.toString(',')
+        sequenzaLR = sequenzaLR.toString(',')
+        if (sequenzaRL == sequenzaLR) return true
+        else return false
+    }
+
+}
+array = [1, 2, 3]
+let seqPalindroma = new SeqPalindroma(array)
+seqPalindroma.enqueue(2)
+seqPalindroma.enqueue(1)
+console.log(seqPalindroma.isPalindr())
