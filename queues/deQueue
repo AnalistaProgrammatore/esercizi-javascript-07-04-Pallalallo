@@ -1,0 +1,39 @@
+class Deque {
+    constructor() {
+        this.datastore = [];
+    }
+    enqueue(element) {
+        this.datastore.push(element)
+    }
+    fDequeue() {
+        this.datastore.shift()
+    }
+    bDequeue() {
+        return this.datastore.pop()
+    }
+    back() {
+        return this.datastore[this.datastore.length - 1]
+    }
+    front() {
+        return this.datastore[0]
+    }
+    toString() {
+        let retstr = ''
+        for (let i = 0; i < this.datastore.length - 1; i++) {
+            retstr += this.datastore[i] + '\n'
+        }
+        return retstr
+    }
+    empty() {
+        if (this.datastore.length === 0) return true
+        else return false
+    }
+
+}
+
+let deque = new Deque()
+deque.enqueue(1)
+deque.enqueue(2)
+deque.enqueue(3)
+deque.bDequeue()
+console.log(deque.toString())
