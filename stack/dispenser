@@ -1,0 +1,115 @@
+class PezDispenser {
+    constructor() {
+        this.redDisp = [];
+        this.yellowDisp = []
+        this.whiteDisp = []
+        this.top1 = 0;
+        this.top2 = 0;
+        this.top3 = 0;
+    }
+    length(colour) {
+        switch (colour) {
+            case this.redDisp:
+                return this.top1;
+                break
+            case this.yellowDisp:
+                return this.top2
+                break
+            case this.whiteDisp:
+                return this.top3
+                break
+        }
+    }
+    push(colour, n) {
+        switch (colour) {
+            case this.redDisp:
+                for (let i = 0; i < n; i++) {
+                    colour[this.top1++] = this.top1;
+                }
+                break
+            case this.yellowDisp:
+                for (let i = 0; i < n; i++) {
+                    colour[this.top2++] = this.top2;
+                }
+                break
+            case this.whiteDisp:
+                for (let i = 0; i < n; i++) {
+                    colour[this.top3++] = this.top3;
+                }
+                break
+        }
+    }
+    pop(colour) {
+        switch (colour) {
+            case this.redDisp:
+                return colour[--this.top1]
+                break
+            case this.yellowDisp:
+                return colour[--this.top2]
+                break
+            case this.whiteDisp:
+                return colour[--this.top3]
+                break
+        }
+    }
+    clear(colour) {
+        switch (colour) {
+            case this.redDisp:
+                this.top1 = 0
+                break
+            case this.yellowDisp:
+                this.top2 = 0
+                break
+            case this.whiteDisp:
+                this.top3 = 0
+                break
+        }
+    }
+    peek(colour) {
+        let top = 0;
+        switch (colour) {
+            case redDisp:
+                return colour[this.top1]
+                break
+            case yellowDisp:
+                return colour[this.top2]
+                break
+            case whiteDisp:
+                return colour[this.top3]
+                break
+        }
+
+    }
+    display() {
+        let putstr = ''
+        console.log('Red Dispenser:')
+        for (let i = 0; i < this.top1; i++) {
+            putstr += this.redDisp[i]
+        }
+        console.log(putstr)
+        putstr = ''
+        console.log('\nYellow Dispenser:')
+        for (let i = 0; i < this.top2; i++) {
+            putstr += this.yellowDisp[i]
+        }
+        console.log(putstr)
+        putstr = ''
+        console.log('\nWhite Dispenser:')
+        for (let k = 0; k < this.top3; k++) {
+            putstr += this.whiteDisp[k]
+        }
+        console.log(putstr)
+    }
+}
+
+let pezDispenser = new PezDispenser()
+pezDispenser.push(pezDispenser.redDisp, 3)
+pezDispenser.push(pezDispenser.yellowDisp, 4)
+pezDispenser.push(pezDispenser.whiteDisp, 2)
+pezDispenser.display()
+console.log('---------------')
+pezDispenser.pop(pezDispenser.whiteDisp)
+pezDispenser.display()
+console.log('---------------')
+pezDispenser.clear(pezDispenser.yellowDisp)
+pezDispenser.display()
