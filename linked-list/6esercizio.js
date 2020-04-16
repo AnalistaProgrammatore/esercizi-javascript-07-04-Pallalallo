@@ -9,7 +9,7 @@ class LList {
         this.head = new Node(0)
     }
     suicideSquad(m) {
-        let last = this.findLast().position, current = this.head
+        let last = this.findLast().position, current = this.head.next
         while (last >= m) {
             for (let i = 0; i < m - 1; i++) {
                 current = current.next
