@@ -9,11 +9,9 @@ class ParCheck {
         return this.top;
     }
     push(data) {
-        console.log(this.top)
         this.dataStore[this.top++] = data;
     }
     pop() {
-        console.log(this.top)
         return this.dataStore[--this.top]
     }
     clear() {
@@ -25,11 +23,11 @@ class ParCheck {
     checkPar() {
 
         for (let i = 0; i <= this.expr.length - 1; i++) {
-            if (this.expr[i] === '(') { this.dataStore.push(i + 1); }
-            else if (this.expr[i] === ')') { this.dataStore.pop(); }
+            if (this.expr[i] === '(') { this.push(i + 1); }
+            else if (this.expr[i] === ')') { this.pop(); }
         }
 
-        if (this.dataStore.length === 0) console.log('L\'espressione è corretta')
+        if (this.length() === 0) console.log('L\'espressione è corretta')
         else {
             for (let i = 0; i <= this.dataStore.length - 1; i++) {
                 this.parPositions.push(this.dataStore[i])
